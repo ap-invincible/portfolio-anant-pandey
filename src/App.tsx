@@ -32,9 +32,6 @@ const DbIcon = ({ size = 48, color = '#FFFFFF' }) => (
 const CloudIcon = ({ size = 48, color = '#FFFFFF' }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></svg>
 );
-const ExternalIcon = ({ size = 18 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg>
-);
 
 // ─── CUSTOM CURSOR ───────────────────────────────────────────────────────────
 function Cursor() {
@@ -128,13 +125,19 @@ function FallingStars() {
     const stars: { x: number; y: number; length: number; speed: number; opacity: number }[] = [];
     const starCount = 15;
 
-    const createStar = () => ({
-      x: Math.random() * width * 1.5,
-      y: Math.random() * -height * 0.5,
-      length: Math.random() * 30 + 10,
-      speed: Math.random() * 10 + 6,
-      opacity: Math.random() * 0.3 + 0.05,
-    });
+    const createStar = () => {
+      const speed = Math.random() * 8 + 4;
+      const length = speed * 4; // Longer lines for faster stars
+      const opacity = (speed / 12) * 0.4; // Brighter for faster stars
+      return {
+        x: Math.random() * width * 1.5,
+        y: Math.random() * -height,
+        length,
+        speed,
+        opacity,
+        lineWidth: (speed / 12) * 1.5,
+      };
+    };
 
     for (let i = 0; i < starCount; i++) {
       stars.push(createStar());
@@ -142,14 +145,14 @@ function FallingStars() {
 
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
-      ctx.strokeStyle = '#ffffff';
-      ctx.lineWidth = 0.8;
       ctx.lineCap = 'round';
       ctx.shadowBlur = 2;
       ctx.shadowColor = '#ffffff';
 
       stars.forEach(star => {
         ctx.beginPath();
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = star.lineWidth;
         ctx.globalAlpha = star.opacity;
         ctx.moveTo(star.x, star.y);
         ctx.lineTo(star.x - star.length, star.y + star.length);
@@ -161,10 +164,9 @@ function FallingStars() {
         if (star.y > height + star.length || star.x < -star.length) {
           const newStar = createStar();
           Object.assign(star, newStar);
-          // Start some stars from the top edge and some from the right edge
           if (Math.random() > 0.5) {
             star.y = -star.length;
-            star.x = Math.random() * width + width * 0.2;
+            star.x = Math.random() * width + width * 0.5;
           } else {
             star.x = width + star.length;
             star.y = Math.random() * height * 0.5;
