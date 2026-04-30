@@ -122,7 +122,7 @@ function FallingStars() {
     let width = canvas.width = window.innerWidth;
     let height = canvas.height = window.innerHeight;
 
-    const stars: { x: number; y: number; length: number; speed: number; opacity: number }[] = [];
+    const stars: { x: number; y: number; length: number; speed: number; opacity: number; lineWidth: number }[] = [];
     const starCount = 15;
 
     const createStar = () => {
