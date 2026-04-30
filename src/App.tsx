@@ -366,7 +366,7 @@ export default function App() {
               {/* Stats */}
               <div className="stats-row" style={{ display: 'flex', gap: 40, margin: '16px 0' }}>
                 {[
-                  { n: 5, s: '+', label: 'Projects Shipped' },
+                  { n: 6, s: '+', label: 'Projects Shipped' },
                   { n: 7, s: '+', label: 'Hackathons attended' },
                   { n: 7, s: '+', label: 'Tech Stacks' }
                 ].map((st, i) => (
