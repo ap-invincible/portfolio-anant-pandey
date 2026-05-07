@@ -541,6 +541,29 @@ h3 {
   position: relative;
   will-change: transform;
   width: 100%;
+  transition: border-color 0.4s var(--ease-out-expo), background-color 0.4s var(--ease-out-expo), color 0.4s var(--ease-out-expo);
+}
+
+.project-card:hover {
+  border-color: rgba(255, 255, 255, 1);
+  background: rgba(255, 255, 255, 0.35);
+  color: var(--blue);
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+}
+
+.project-card:hover .project-content h3,
+.project-card:hover .project-content p,
+.project-card:hover .project-tag {
+  color: inherit !important;
+}
+
+.project-card:hover .project-image {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.project-card:hover .project-image::after {
+  background: linear-gradient(to bottom, transparent 60%, rgba(255, 255, 255, 0.2));
 }
 
 .project-card-inner {

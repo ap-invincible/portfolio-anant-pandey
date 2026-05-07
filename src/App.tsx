@@ -20,16 +20,19 @@ const MailIcon = ({ size = 24 }) => (
 const ChevronRight = ({ size = 20 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
 );
-const CodeIcon = ({ size = 70, color = '#fff' }) => (
+const InstagramIcon = ({ size = 24 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
+);
+const CodeIcon = ({ size = 70, color = 'currentColor' }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>
 );
-const BrainIcon = ({ size = 48, color = '#FFFFFF' }) => (
+const BrainIcon = ({ size = 48, color = 'currentColor' }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /><path d="M12 13h4" /><path d="M12 5h4" /><path d="M16 13a2 2 0 1 1 0 4h-1" /><path d="M16 5a2 2 0 1 0 0 4h-1" /></svg>
 );
-const DbIcon = ({ size = 48, color = '#FFFFFF' }) => (
+const DbIcon = ({ size = 48, color = 'currentColor' }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5v14a9 3 0 0 0 18 0V5" /><path d="M3 12a9 3 0 0 0 18 0" /></svg>
 );
-const CloudIcon = ({ size = 48, color = '#FFFFFF' }) => (
+const CloudIcon = ({ size = 48, color = 'currentColor' }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></svg>
 );
 
@@ -278,7 +281,7 @@ export default function App() {
     });
   }, { scope: containerRef });
 
-  const skills = ['React.js', 'TypeScript', 'Flask', 'FastAPI', 'Scikit-learn', 'LightGBM', 'TensorFlow', 'XGBoost', 'AWS', 'Docker', 'PostgreSQL', 'Charts.js', 'Kubernetes'];
+  const skills = ['React.js', 'TypeScript', 'Flask', 'FastAPI', 'Scikit-learn', 'LightGBM', 'TensorFlow', 'XGBoost', 'Docker', 'PostgreSQL', 'Charts.js', 'LLMs'];
   const projects = [
     { title: 'Disease Outbreak Predictor', desc: 'Research-grade ML platform predicting public health risks with high accuracy, integrating FastAPI, LightGBM, and LLM decision support.', tags: ['FastAPI', 'Scikit-learn', 'LightGBM', 'Qwen', 'React'], icon: <BrainIcon /> },
     { title: 'Chat Based Education Platform', desc: 'An interactive learning environment where students can learn at their own pace with the help of our RAG powered LLM tutor.', tags: ['FastAPI', 'React', 'Llama', 'TypeScript'], icon: <DbIcon /> },
@@ -324,7 +327,7 @@ export default function App() {
 
           <p className="hero-subtitle" style={{ marginTop: 28, opacity: 0 }}>
             I build scalable intelligent systems —<br />
-            <strong>Fullstack Developer · ML Engineer · Cloud Architect</strong>
+            <strong>Fullstack Developer  ·  ML Engineer</strong>
           </p>
 
           <div className="hero-btns" style={{ display: 'flex', gap: 16, marginTop: 36, flexWrap: 'wrap', opacity: 0 }}>
@@ -459,7 +462,14 @@ export default function App() {
               >
                 <motion.div
                   className="project-card"
-                  whileHover={{ y: -12, boxShadow: '0 40px 80px -20px rgba(0,0,0,0.35)' }}
+                  whileHover={{
+                    y: -12,
+                    boxShadow: '0 0 30px rgba(255, 255, 255, 0.32), 0 40px 80px -20px rgba(0,0,0,0.35)',
+                    borderColor: 'rgba(255, 255, 255, 1)',
+                    borderWidth: '1px',
+                    backgroundColor: 'rgba(255, 255, 255, 0.47)',
+                    color: '#080808'
+                  }}
                   transition={{ type: 'spring', stiffness: 350, damping: 28 }}
                 >
                   <div className="project-card-inner">
@@ -502,6 +512,7 @@ export default function App() {
               { icon: <GithubIcon size={26} />, href: 'https://www.github.com/ap-invincible', label: 'GitHub' },
               { icon: <LinkedinIcon size={26} />, href: 'https://www.linkedin.com/in/ap-invincible', label: 'LinkedIn' },
               { icon: <MailIcon size={26} />, href: 'mailto:anantpandey9876@gmail.com', label: 'Email' },
+              { icon: <InstagramIcon size={26} />, href: 'https://www.instagram.com/dev.invincible', label: 'Instagram' },
             ].map(({ icon, href, label }, i) => (
               <motion.a
                 key={i} href={href} target={href.startsWith('mailto') ? undefined : '_blank'} rel="noopener noreferrer" aria-label={label}
@@ -521,7 +532,7 @@ export default function App() {
 
       {/* ── FOOTER ─────────────────────────────────────────────────────────── */}
       <footer>
-        <p>Designed & Built by <strong>Anant Pandey</strong></p>
+        <p>Designed & Built by <strong>Anant Pandey.</strong></p>
         <p style={{ marginTop: 6, opacity: 0.6 }}>© {new Date().getFullYear()} All rights reserved.</p>
       </footer>
     </div>
