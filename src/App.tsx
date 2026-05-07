@@ -36,6 +36,13 @@ const CloudIcon = ({ size = 48, color = '#FFFFFF' }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></svg>
 );
 
+const Logo = ({ size = 32 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 4L4 20H8L12 11L16 20H20L12 4Z" fill="currentColor" stroke="currentColor" strokeWidth="1" strokeLinejoin="round" />
+    <path d="M12 11L9.5 16H14.5L12 11Z" fill="black" />
+  </svg>
+);
+
 // ─── CUSTOM CURSOR ───────────────────────────────────────────────────────────
 function Cursor() {
   const dot = useRef<HTMLDivElement>(null);
@@ -296,7 +303,10 @@ export default function App() {
       {/* ── NAVBAR ─────────────────────────────────────────────────────────── */}
       <div className="navbar-glass" />
       <nav className="navbar">
-        <div className="navbar-logo">ANANT.</div>
+        <div className="navbar-logo">
+          <Logo size={28} />
+          <span>ANANT.</span>
+        </div>
         <div className="navbar-links">
           {['About', 'Projects', 'Contact'].map(item => (
             <a key={item} href={`#${item.toLowerCase()}`}>{item}</a>

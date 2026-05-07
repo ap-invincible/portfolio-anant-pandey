@@ -187,6 +187,9 @@ ul {
   font-family: 'Outfit', sans-serif;
   color: #ffffff;
   letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .navbar-links {
