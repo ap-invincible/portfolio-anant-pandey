@@ -23,16 +23,16 @@ const ChevronRight = ({ size = 20 }) => (
 const InstagramIcon = ({ size = 24 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
 );
-const CodeIcon = ({ size = 70, color = 'currentColor' }) => (
+const CodeIcon = ({ size = 70, color = '#fff' }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>
 );
-const BrainIcon = ({ size = 48, color = 'currentColor' }) => (
+const BrainIcon = ({ size = 48, color = '#FFFFFF' }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /><path d="M12 13h4" /><path d="M12 5h4" /><path d="M16 13a2 2 0 1 1 0 4h-1" /><path d="M16 5a2 2 0 1 0 0 4h-1" /></svg>
 );
-const DbIcon = ({ size = 48, color = 'currentColor' }) => (
+const DbIcon = ({ size = 48, color = '#FFFFFF' }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5v14a9 3 0 0 0 18 0V5" /><path d="M3 12a9 3 0 0 0 18 0" /></svg>
 );
-const CloudIcon = ({ size = 48, color = 'currentColor' }) => (
+const CloudIcon = ({ size = 48, color = '#FFFFFF' }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></svg>
 );
 
@@ -462,13 +462,13 @@ export default function App() {
               >
                 <motion.div
                   className="project-card"
-                  whileHover={{
-                    y: -12,
-                    boxShadow: '0 0 30px rgba(255, 255, 255, 0.32), 0 40px 80px -20px rgba(0,0,0,0.35)',
-                    borderColor: 'rgba(255, 255, 255, 1)',
-                    borderWidth: '1px',
-                    backgroundColor: 'rgba(255, 255, 255, 0.47)',
-                    color: '#080808'
+                  whileHover={{ 
+                    y: -15, 
+                    boxShadow: '0 0 35px rgba(255, 255, 255, 0.18), 0 45px 90px -20px rgba(0,0,0,0.45)',
+                    borderColor: 'rgba(255, 255, 255, 0.9)',
+                    borderWidth: '0.5px',
+                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                    backdropFilter: 'blur(35px)',
                   }}
                   transition={{ type: 'spring', stiffness: 350, damping: 28 }}
                 >
